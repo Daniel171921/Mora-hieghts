@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h2 class="logo">Mora Heights Resort</h2>
+        <nav class="nav">
+        <a href="index.html">back to Home</a>
+    </nav>
+    </header>
+    <div class="wraper">
+        <!-- <span class="icon-close"><ion-icon name="close-circle"></ion-icon></span> -->
+        <div class="form-box login">
+            <h2>Booking</h2>
+            <form action="#">
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="person"></ion-icon></span>
+                    <input type="text" required>
+                    <label for="#">Full Name:</label>
+                </div>
+                 <div class="input-box">
+                    <span class="icon"><ion-icon name="person"></ion-icon></span>
+                    <input type="text" required>
+                    <label for="#">Nationality:</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="person"></ion-icon></span>
+                    <input type="text" required>
+                    <label for="#">Special order:</label>
+                </div>
+                <div class="input-box">
+                    
+                    <input type="date" class="date-icon" required>
+                    <label for="#">arrival (date)</label>
+                </div>
+                <div class="input-box">
+                    <input type="date" class="date-icon" required>
+                    <label for="#">exit (date):</label>
+                </div>
+                <div class="remember-forget">
+                    <!-- <label for=""><input type="checkbox">Accept all terms and condition </label> -->
+                </div>
+                <button type="submit" class="btn" onclick="getelement()">Reserve</button>
+                
+                </div>
+            </form>
+        </div>
+</div>
+    <script src="script.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+<script>
+
+   function getelement() {
+    alert("You have been successfully booked");
+   };
+</script>
+</body>
+</html>

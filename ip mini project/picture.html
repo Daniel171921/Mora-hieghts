@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Masonry Layout con CSS Grid</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="icon" href="nech.webp">
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+	<link rel="stylesheet" href="hh.css">
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+	<div class="header-p">
+        <div class="navb">
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="service.html">Service</a></li>
+                    <li><a href="picture.html">Picture</a></li>
+                    <li><a href="map.html">Map</a></li>
+                </ul>
+                <!-- <img src="img/view.jpg" class="lets" alt=""> -->
+            </nav>
+        </div>
+        <div class="phototxt">
+            <div class="phototxt1-service">
+                <center>
+                    <h1>MORA HIEGHTS RESORT</h1>
+                    <P>A PLACE WERE YOU CAN HAVE PEACE</P><br><br>
+                    <button onclick="window.open('bookle.html')" class="login">Booking</button>
+            </div>
+            </center>
+        </div>
+    </div>
+    <h1>Mora Hieghts Gallery</h1>
+
+    <div class="gallery" id="gallery">
+        <div class="gallery-item">
+            <div class="content"><img src="/img/food1.jpg" alt=""></div>
+        </div>
+		
+        <div class="gallery-item">
+            <div class="content"><img src="/img/lady.jpg" alt=""></div>
+        </div>
+        <div class="gallery-item">
+            <div class="content"><img src="/img/open.jpg alt=""></div>
+        </div>
+        <div class="gallery-item">
+            <div class="content"><img src="/img/food5.webp" alt=""></div>
+        </div>
+        <div class="gallery-item">
+            <div class="content"><img src="/img/recepition.jpg" alt=""></div>
+        </div>
+        <div class="gallery-item">
+            <div class="content"><img src="/img/food4.webp" alt=""></div>
+        </div>
+        <div class="gallery-item">
+            <div class="content"><img src="/img/bed.jpg" alt=""></div>
+        </div>
+        <div class="gallery-item">
+            <div class="content"><img src="/img/logo.jpg" alt=""></div>
+        </div>
+        <div class="gallery-item">
+            <div class="content"><img src="img/mora-s-restaurant.jpg" alt=""></div>
+        </div>
+        <div class="gallery-item">
+            <div class="content"><img src="/img/mora-s-bungalows.jpg" alt=""></div>
+        </div>
+        <div class="gallery-item">
+            <div class="content"><img src="img/mora-heights.jpg" alt=""></div>
+        </div>
+        <div class="gallery-item">
+            <div class="content"><img src="img/food1 (2).jpg" alt=""></div>
+        </div>
+        <div class="gallery-item">
+            <div class="content"><img src="/img/the-view-from-the-hotel.jpg" alt=""></div>
+        </div>
+        <div class="gallery-item">
+            <div class="content"><img src="img/bed.jpg" alt=""></div>
+        </div>
+        <div class="gallery-item">
+            <div class="content"><img src="img/drink.jpg" alt=""></div>
+        </div>
+    </div>
+	<div class="footer">
+		<div class="container">
+			<div class="foot">
+				<div class="foot-col">
+					<h4>Company</h4>
+					<ul>
+						<li><a href="">About us</a></li>
+						<li><a href="">Our Service</a></li>
+						<li><a href="">privacy policy</a></li>
+						<li><a href="">About us</a></li>
+						<li><a href="">affilate program</a></li>
+					</ul>
+				</div>
+				<div class="foot-col">
+					<h4>Follow us</h4>
+					<div class="so-link">
+						<a href=""></ion-icon><i class="fab fa-facebook-f"></i> </a>
+						<a href=""><i class="fab fa-instagram"></i></a>
+						<a href=""><i class="fab fa-twitter"></i></a><br><br>
+						<span class="" style="color: #fff;"><ion-icon name="call"></ion-icon> <a
+								href="tel:+46 8 81 21 58">+468812158</a></span>
+						<span><ion-icon name="link"></ion-icon></span>
+					</div>
+				</div>
+			</div>
+			<div style="color:#fff">
+				2023 Copywrite Mora Hieghts Resort
+			</div>
+		</div>
+	</div>
+     <script>
+		var gallery = document.querySelector('#gallery');
+var getVal = function (elem, style) { return parseInt(window.getComputedStyle(elem).getPropertyValue(style)); };
+var getHeight = function (item) { return item.querySelector('.content').getBoundingClientRect().height; };
+var resizeAll = function () {
+    var altura = getVal(gallery, 'grid-auto-rows');
+    var gap = getVal(gallery, 'grid-row-gap');
+    gallery.querySelectorAll('.gallery-item').forEach(function (item) {
+        var el = item;
+        el.style.gridRowEnd = "span " + Math.ceil((getHeight(item) + gap) / (altura + gap));
+    });
+};
+gallery.querySelectorAll('img').forEach(function (item) {
+    item.classList.add('byebye');
+    if (item.complete) {
+        console.log(item.src);
+    }
+    else {
+        item.addEventListener('load', function () {
+            var altura = getVal(gallery, 'grid-auto-rows');
+            var gap = getVal(gallery, 'grid-row-gap');
+            var gitem = item.parentElement.parentElement;
+            gitem.style.gridRowEnd = "span " + Math.ceil((getHeight(gitem) + gap) / (altura + gap));
+            item.classList.remove('byebye');
+        });
+    }
+});
+window.addEventListener('resize', resizeAll);
+gallery.querySelectorAll('.gallery-item').forEach(function (item) {
+    item.addEventListener('click', function () {        
+        item.classList.toggle('full');        
+    });
+});
+	 </script>
+</body>
+</html>
